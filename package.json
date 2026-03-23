@@ -1,19 +1,22 @@
 {
-  "version": "4.18.0",
+  "name": "@kadowclub/emoji-picker-react",
+  "version": "4.18.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "homepage": "https://ealush.com/emoji-picker-react",
+  "homepage": "https://github.com/kadowclub/emoji-picker-react",
   "files": [
     "dist",
     "src"
   ],
-  "description": "Emoji Picker component for React Applications on the web",
+  "description": "Emoji Picker component for React Applications on the web - with Emoji v17 support (forked from ealush/emoji-picker-react)",
   "keywords": [
     "emoji-picker",
     "react-emoji-picker",
     "emoji",
     "emojis",
+    "emoji-v17",
+    "unicode-16",
     "reactions",
     "reactions-picker",
     "emoji-reactions"
@@ -23,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ealush/emoji-picker-react.git"
+    "url": "https://github.com/kadowclub/emoji-picker-react.git"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -40,7 +43,12 @@
     "build:data:dist": "tsc --project tsconfig.data.json && node ./scripts/copyData.js",
     "build:data": "yarn build:data:src && yarn build:data:dist",
     "storybook": "yarn build:data && storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run test && npm run build",
+    "pack:test": "npm pack",
+    "release:patch": "npm version patch && npm publish --access public",
+    "release:minor": "npm version minor && npm publish --access public",
+    "release:major": "npm version major && npm publish --access public"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -92,7 +100,7 @@
     "babel-loader": "^8.2.5",
     "cssnano": "^5.1.13",
     "emoji-datasource": "^16.0.0",
-    "emojibase-data": "^15.3.0",
+    "emojibase-data": "^17.0.0",
     "eslint-import-resolver-typescript": "^3.3.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
